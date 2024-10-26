@@ -3,24 +3,16 @@ import ReactDOM from "react-dom/client"
 import Header from "./src/Header";
 import Body from "./src/Body";
 import ProductContext from "./utils/ProductContext";
-
-
-
-
-
-
-
-
-
+import Model from "./src/Model";
 
 
 const Applayout=()=>{
     const [productUpdate,setProductUpdate]=useState();
-    const {large,medium,small,brand,cost}=useContext(ProductContext)
-    const {list} =useContext(ProductContext)
+    const {prod,large,medium,small}=useContext(ProductContext)
+    // const {list} =useContext(ProductContext)
     return (
         <div>
-        <ProductContext.Provider value={{large:large,medium:medium,small:small,brand:brand,cost:cost,setProductUpdate}}>
+        <ProductContext.Provider value={{prod:prod,large:large,medium:medium,small:small,setProductUpdate}}>
         <Header/>
         <Body/>
         </ProductContext.Provider>

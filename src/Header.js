@@ -1,25 +1,25 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ProductContext from "../utils/ProductContext";
+import Model from "./Model";
 
 
 const Header=()=>{
-   const {large,medium,small,setp}= useContext(ProductContext);
+   const {large,medium,small}= useContext(ProductContext);
+   const [show,setShow]=useState(false);
+//    const [total,setTotal]=useState(large.length+medium.length+small.length)
 //    console.log(large)
-let total=0;
-   for(let i=0;i<large.length;i++){
-    console.log(large[i])
-    total+=large[i];
-   }
-   for(let i=0;i<medium.length;i++){
-    console.log(typeof medium[i])
-    total+=medium[i];
-   }
-   for(let i=0;i<small.length;i++){
-    total+=small[i];
-   }
+console.log("header",large)
+var total=large.length+medium.length+small.length;
+    const ShowHandler=()=>{
+        // setTotal(0)
+        return setShow(!show);
+    }
     return(
         <div>
-            <button>Cart{total}</button>
+            {show&&<Model ShowHandler={ShowHandler} setShow={setShow} />}
+            <button onClick={()=>{
+                setShow(!show)
+            }}>Cart{total}</button>
         </div>
     )
 }

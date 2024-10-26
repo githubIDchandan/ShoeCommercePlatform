@@ -1,11 +1,11 @@
 import { createContext } from "react";
 
 const ProductContext= createContext({
+   prod:[],
    large:[],
    medium:[],
    small:[],
-   brand:[],
-   cost:[]
+   deleteItem:()=>{},
 })
 
 export default ProductContext
